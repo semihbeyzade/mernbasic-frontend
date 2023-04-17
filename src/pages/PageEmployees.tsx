@@ -13,7 +13,7 @@ export const PageEmployees = () => {
 			<div className="content">
 				{employees.map(employee => {
 					return (
-						<div className="employee">
+						<div className="employee" key={employee.id}>
 							<div className="fullName">{employee.firstName} {employee.lastName}</div>
 						</div>
 					)

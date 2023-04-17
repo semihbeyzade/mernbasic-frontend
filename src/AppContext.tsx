@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import axios from 'axios';
 import { IEmployee } from './interfaces';
 
-const employeesUrl = 'https://localhost:3322';
+const employeesUrl = 'http://localhost:3322';
 
 interface IAppContext {
 	appTitle: string;
@@ -21,27 +21,18 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [employees, setEmployees] = useState<IEmployee[]>([]);
 
 	useEffect(() => {
-		setEmployees([
-			{
-				id: 1,
-				firstName: 'John',
-				lastName: 'Taylor',
-				title: 'President'
-			},
-			{
-				id: 2,
-				firstName: 'Sue',
-				lastName: 'Taylor',
-				title: 'Sales Member'
-			}
-		])
+		(async () => {
+			const response = await axios.get(`${employeesUrl}/employees`);
+			const _employees = response.data;
+			setEmployees(_employees)
+		})();
 	}, []);
 
 	return (
 		<AppContext.Provider
 			value={{
 				appTitle,
-				employees
+				employees,
 			}}
 		>
 			{children}
