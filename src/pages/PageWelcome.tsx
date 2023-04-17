@@ -3,7 +3,7 @@ import { AppContext } from '../AppContext';
 import { Helmet } from 'react-helmet';
 
 export const PageWelcome = () => {
-	const { appTitle, jobs, skills } = useContext(AppContext);
+	const { appTitle } = useContext(AppContext);
 
 	return (
 		<div className="pageWelcome">
