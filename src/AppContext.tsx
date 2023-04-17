@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
-import { IJob, ISkill } from './interfaces';
+import { IEmployee } from './interfaces';
 
-const jobsUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
-const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
+const employeesUrl = 'https://localhost:3322';
 
 interface IAppContext {
 	appTitle: string;
-	jobs: IJob[];
-	skills: ISkill[];
+	employees: IEmployee[];
 }
 
 interface IAppProvider {
@@ -20,27 +18,30 @@ export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const appTitle = 'Info Site';
-	const [jobs, setJobs] = useState<IJob[]>([]);
-	const [skills, setSkills] = useState<ISkill[]>([]);
+	const [employees, setEmployees] = useState<IEmployee[]>([]);
 
 	useEffect(() => {
-		(async () => {
-			setJobs((await axios.get(jobsUrl)).data);
-		})();
-	}, []);
-
-	useEffect(() => {
-		(async () => {
-			setSkills((await axios.get(skillsUrl)).data);
-		})();
+		setEmployees([
+			{
+				id: 1,
+				firstName: 'John',
+				lastName: 'Taylor',
+				title: 'Dr.'
+			},
+			{
+				id: 2,
+				firstName: 'Sue',
+				lastName: 'Taylor',
+				title: 'Dr.'
+			}
+		])
 	}, []);
 
 	return (
 		<AppContext.Provider
 			value={{
 				appTitle,
-				jobs,
-				skills
+				employees
 			}}
 		>
 			{children}

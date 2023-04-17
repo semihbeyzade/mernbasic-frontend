@@ -1,16 +1,6 @@
-export interface IJob {
+export interface IEmployee {
 	id: number;
+	firstName: string;
+	lastName: string;
 	title: string;
-	company: string;
-	url: string;
-	description: string;
-	skillList: string;
-	publicationDate: string;
-}
-
-export interface ISkill {
-	idCode: string;
-	name: string;
-	url: string;
-	description: string;
 }
