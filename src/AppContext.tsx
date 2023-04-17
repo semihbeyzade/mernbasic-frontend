@@ -26,13 +26,13 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				id: 1,
 				firstName: 'John',
 				lastName: 'Taylor',
-				title: 'Dr.'
+				title: 'President'
 			},
 			{
 				id: 2,
 				firstName: 'Sue',
 				lastName: 'Taylor',
-				title: 'Dr.'
+				title: 'Sales Member'
 			}
 		])
 	}, []);

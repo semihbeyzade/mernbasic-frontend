@@ -3,7 +3,7 @@ import { AppContext } from '../AppContext';
 import { Helmet } from 'react-helmet';
 
 export const PageEmployees = () => {
-	const { appTitle } = useContext(AppContext);
+	const { appTitle, employees } = useContext(AppContext);
 
 	return (
 		<div className="pageEmployees">
@@ -11,7 +11,13 @@ export const PageEmployees = () => {
 				<title>{appTitle} - Info</title>
 			</Helmet>
 			<div className="content">
-				<p>this is the employees page</p>
+				{employees.map(employee => {
+					return (
+						<div className="employee">
+							<div className="fullName">{employee.firstName} {employee.lastName}</div>
+						</div>
+					)
+				})}
 			</div>
 		</div>
 	);
