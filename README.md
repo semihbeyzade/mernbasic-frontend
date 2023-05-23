@@ -38,3 +38,4 @@ This is a simple one-page React site created with Vite that has Typescript and S
 
 https://starters.tanguay.eu
 # mernbasic-frontend
+# mernbasic-frontend
