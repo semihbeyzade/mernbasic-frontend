@@ -34,8 +34,4 @@ This is a simple one-page React site created with Vite that has Typescript and S
 - start your site and click given link to view website
   - `npm run dev`
 
-## more starters, templates and frameworks
 
-https://starters.tanguay.eu
-# mernbasic-frontend
-# mernbasic-frontend
